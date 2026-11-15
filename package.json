@@ -1,0 +1,69 @@
+{
+  "name": "@studiocoders/webhook-verifier",
+  "version": "1.0.0",
+  "description": "Ultra-fast, zero-dependency, timing-safe HMAC-SHA256 webhook signature verifier for Meta, WhatsApp Cloud API, Stripe, and generic webhooks on Next.js, Edge Runtimes, and Node.js.",
+  "keywords": [
+    "webhook",
+    "hmac",
+    "sha256",
+    "whatsapp",
+    "meta",
+    "stripe",
+    "nextjs",
+    "edge-runtime",
+    "web-crypto",
+    "timing-safe",
+    "security",
+    "typescript"
+  ],
+  "homepage": "https://studiocoders.dev#codigo-publico",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/studiocoders-dev/webhook-verifier.git"
+  },
+  "bugs": {
+    "url": "https://github.com/studiocoders-dev/webhook-verifier/issues"
+  },
+  "license": "MIT",
+  "author": "Studio Coders Dev (https://studiocoders.dev)",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && node scripts/build-cjs.mjs",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "lint": "tsc --noEmit && node scripts/lint-zero-deps.mjs",
+    "prepublishOnly": "npm run lint && npm run test:coverage && npm run build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "@vitest/coverage-v8": "^5.1.0",
+    "typescript": "^5.7.0",
+    "vitest": "^5.1.0"
+  }
+}
